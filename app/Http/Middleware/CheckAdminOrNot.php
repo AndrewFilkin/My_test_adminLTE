@@ -18,9 +18,13 @@ class CheckAdminOrNot
     public function handle(Request $request, Closure $next)
     {
 
-        $userRole = Auth::user()->role;
-        if ($userRole !== 1) {
-            return redirect('home');
+        if (!isset(Auth::user()->role)) {
+            return redirect('login');
+        } else {
+            $userRole = Auth::user()->role;
+            if ($userRole !== 1) {
+                return redirect('home');
+            }
         }
         return $next($request);
     }

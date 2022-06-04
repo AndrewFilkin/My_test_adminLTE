@@ -13,10 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -33,6 +29,11 @@ Route::group([ 'middleware' => 'check_admin_or_not', 'prefix' => 'admin', 'as' =
     });
 
 });
-//
+//Blog
+Route::group([], function () {
+
+    Route::get('/', [App\Http\Controllers\Blog\BlogPostController::class, 'index'])->name('home');
+
+});
 
 

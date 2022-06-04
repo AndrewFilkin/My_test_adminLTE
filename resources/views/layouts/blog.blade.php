@@ -1,18 +1,19 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Clean Blog Template</title>
-    <meta name="keywords" content="clean blog template, html css layout" />
-    <meta name="description" content="Clean Blog Template is provided by templatemo.com" />
-    <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
+    <meta name="keywords" content="clean blog template, html css layout"/>
+    <meta name="description" content="Clean Blog Template is provided by templatemo.com"/>
+    <link href="{{asset('css_blog/templatemo_style.css')}}" rel="stylesheet" type="text/css"/>
 
-    <link href="s3slider.css" rel="stylesheet" type="text/css" />
+    <link href="{{asset('css_blog/s3slider.css')}}" rel="stylesheet" type="text/css"/>
     <!-- JavaScripts-->
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/s3Slider.js"></script>
+    <script type="text/javascript" src="{{asset('js_blog/jquery.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js_blog/s3Slider.js')}}"></script>
     <script type="text/javascript">
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('#slider').s3Slider({
                 timeOut: 1600
             });
@@ -40,7 +41,8 @@
         <div id="templatemo_header">
 
             <div id="site_title">
-                <h1><a href="http://www.templatemo.com" target="_parent">Clean <strong>Blog</strong><span>Free HTML-CSS Template</span></a></h1>
+                <h1><a href="http://www.templatemo.com" target="_parent">Clean <strong>Blog</strong><span>Free HTML-CSS Template</span></a>
+                </h1>
             </div><!-- end of site_title -->
 
         </div> <!-- end of header -->
@@ -49,7 +51,7 @@
 
             <div id="templatemo_rss">
 
-                <a href="#">SUBSCRIBE NOW <br /><span>to our rss feed</span></a>
+                <a href="#">SUBSCRIBE NOW <br/><span>to our rss feed</span></a>
 
             </div>
 
@@ -89,20 +91,20 @@
             <div id="slider">
                 <ul id="sliderContent">
                     <li class="sliderImage">
-                        <a href=""><img src="images/slider/1.jpg" alt="1" /></a>
-                        <span class="top"><strong>Project 1</strong><br />Suspendisse turpis arcu, dignissim ac laoreet a, condimentum in massa.</span>
+                        <a href=""><img src="{{asset('img/blog/slider/1.jpg')}}" alt="1"/></a>
+                        <span class="top"><strong>Project 1</strong><br/>Suspendisse turpis arcu, dignissim ac laoreet a, condimentum in massa.</span>
                     </li>
                     <li class="sliderImage">
-                        <a href=""><img src="images/slider/2.jpg" alt="2" /></a>
-                        <span class="bottom"><strong>Project 2</strong><br />uisque eget elit quis augue pharetra feugiat.</span>
+                        <a href=""><img src="{{asset('img/blog/slider/2.jpg')}}" alt="2"/></a>
+                        <span class="bottom"><strong>Project 2</strong><br/>uisque eget elit quis augue pharetra feugiat.</span>
                     </li>
                     <li class="sliderImage">
-                        <img src="images/slider/3.jpg" alt="3" />
-                        <span class="left"><strong>Project 3</strong><br />Sed et quam vitae ipsum vulputate varius vitae semper nunc.</span>
+                        <img src="{{asset('img/blog/slider/3.jpg')}}" alt="3"/>
+                        <span class="left"><strong>Project 3</strong><br/>Sed et quam vitae ipsum vulputate varius vitae semper nunc.</span>
                     </li>
                     <li class="sliderImage">
-                        <img src="images/slider/4.jpg" alt="4" />
-                        <span class="right"><strong>Project 4</strong><br />Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+                        <img src="{{asset('img/blog/slider/4.jpg')}}" alt="4"/>
+                        <span class="right"><strong>Project 4</strong><br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
                     </li>
                     <li class="clear sliderImage"></li>
                 </ul>
@@ -120,9 +122,14 @@
 
                 December 28, 2048 | <strong>Author:</strong> John | <strong>Category:</strong> <a href="#">Freebies</a>
 
-                <img src="images/templatemo_image_01.jpg" alt="image 1" />
+                <img src="{{asset('img/blog/templatemo_image_01.jpg')}}" alt="image 1"/>
 
-                <p>Clean Blog is a <a href="http://www.templatemo.com" target="_parent">Free HTML-CSS Template</a> provided by <a href="#">templatemo.com</a> for everyone. Validate <a href="http://validator.w3.org/check?uri=referer" rel="nofollow">XHTML</a> &amp; <a href="http://jigsaw.w3.org/css-validator/check/referer" rel="nofollow">CSS</a>. Donec enim enim, imperdiet quis, mollis a, elementum a, diam. Lorem ipsum  dolor sit amet, consectetur adipiscing elit. Nulla et nunc commodo ante ornare imperdiet.</p>
+                <p>Clean Blog is a <a href="http://www.templatemo.com" target="_parent">Free HTML-CSS Template</a>
+                    provided by <a href="#">templatemo.com</a> for everyone. Validate <a
+                        href="http://validator.w3.org/check?uri=referer" rel="nofollow">XHTML</a> &amp; <a
+                        href="http://jigsaw.w3.org/css-validator/check/referer" rel="nofollow">CSS</a>. Donec enim enim,
+                    imperdiet quis, mollis a, elementum a, diam. Lorem ipsum dolor sit amet, consectetur adipiscing
+                    elit. Nulla et nunc commodo ante ornare imperdiet.</p>
                 <a href="blog_post.html">Continue reading...</a>
 
             </div>
@@ -133,11 +140,17 @@
 
                 <h2><a href="blog_post.html">Lorem ipsum dolor sit amet</a></h2>
 
-                December 24, 2048 | <strong>Author:</strong> Steve | <strong>Category:</strong> <a href="#">Web Design</a>
+                December 24, 2048 | <strong>Author:</strong> Steve | <strong>Category:</strong> <a href="#">Web
+                    Design</a>
 
-                <img src="images/templatemo_image_02.jpg" alt="image 2" />
+                <img src="{{asset('img/blog/templatemo_image_02.jpg')}}" alt="image 2"/>
 
-                <p>Credits go to <a href="http://www.smashingmagazine.com/2008/09/23/practika-a-free-icon-set/" target="_blank">Smashing Magazine</a> for icons, <a href="http://www.photovaco.com" target="_blank">Free photos</a> for photos, and <a href="http://www.serie3.info/s3slider/" target="_blank">Serie3</a> for the slider. Ut nec vestibulum odio. Vivamus vitae nibh eu sem malesuada rutrum et sit amet magna. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                <p>Credits go to <a href="http://www.smashingmagazine.com/2008/09/23/practika-a-free-icon-set/"
+                                    target="_blank">Smashing Magazine</a> for icons, <a href="http://www.photovaco.com"
+                                                                                        target="_blank">Free photos</a>
+                    for photos, and <a href="http://www.serie3.info/s3slider/" target="_blank">Serie3</a> for the
+                    slider. Ut nec vestibulum odio. Vivamus vitae nibh eu sem malesuada rutrum et sit amet magna. Cum
+                    sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
                 <a href="blog_post.html">Continue reading...</a>
 
             </div>
@@ -151,7 +164,8 @@
     <div id="templatemo_footer">
 
         Copyright © 2048 <a href="#">Your Company Name</a> |
-        <a href="http://www.iwebsitetemplate.com" target="_parent">Website Templates</a> by <a href="http://www.templatemo.com" target="_parent">Free CSS Templates</a>
+        <a href="http://www.iwebsitetemplate.com" target="_parent">Website Templates</a> by <a
+            href="http://www.templatemo.com" target="_parent">Free CSS Templates</a>
 
     </div>
 
