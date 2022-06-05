@@ -17,10 +17,15 @@ class BlogPostController extends BaseController
      */
     public function index()
     {
-        $categoryes = BlogCategory::find(1);
-        $post = BlogPost::find(1);
 
-        dd($categoryes->title);
+//        Вывести слаг с постов и описание с категорий
+//        $post = BlogPost::all();
+//        foreach ($post as $posts) {
+//            echo 'Post slug: '. $posts['slug']. '<br>';
+//            echo '<p>Description: </p>'. $posts->category['description']. '<br>';
+//            echo '--------------------<br>';
+//        }
+
         return view ('index');
     }
 
