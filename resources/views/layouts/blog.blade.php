@@ -122,7 +122,7 @@
 
                 December 28, 2048 | <strong>Author:</strong> John | <strong>Category:</strong> <a href="#">Freebies</a>
 
-                <img src="{{asset('img/blog/templatemo_image_01.jpg')}}" alt="image 1"/>
+                <img src="{{asset('img/blog/ImagesForArticles/templatemo_image_01.jpg')}}" alt="image 1"/>
 
                 <p>Clean Blog is a <a href="http://www.templatemo.com" target="_parent">Free HTML-CSS Template</a>
                     provided by <a href="#">templatemo.com</a> for everyone. Validate <a
@@ -143,7 +143,7 @@
                 December 24, 2048 | <strong>Author:</strong> Steve | <strong>Category:</strong> <a href="#">Web
                     Design</a>
 
-                <img src="{{asset('img/blog/templatemo_image_02.jpg')}}" alt="image 2"/>
+                <img src="{{asset('img/blog/ImagesForArticles/templatemo_image_02.jpg')}}" alt="image 2"/>
 
                 <p>Credits go to <a href="http://www.smashingmagazine.com/2008/09/23/practika-a-free-icon-set/"
                                     target="_blank">Smashing Magazine</a> for icons, <a href="http://www.photovaco.com"
