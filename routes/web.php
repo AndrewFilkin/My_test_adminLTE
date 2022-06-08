@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Blog\BlogPostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,10 @@ Route::group([ 'middleware' => 'check_admin_or_not', 'prefix' => 'admin', 'as' =
 Route::group([], function () {
 
     Route::get('/', [App\Http\Controllers\Blog\BlogPostController::class, 'index'])->name('home');
+
+
+
+    Route::resource('blog', BlogPostController::class);
 
 });
 

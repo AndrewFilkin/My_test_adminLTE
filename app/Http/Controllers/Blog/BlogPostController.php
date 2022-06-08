@@ -25,8 +25,11 @@ class BlogPostController extends BaseController
 //            echo '<p>Description: </p>'. $posts->category['description']. '<br>';
 //            echo '--------------------<br>';
 //        }
+        $items_blog = BlogPost::all();
 
-        return view ('index');
+        // dd($items->first());
+
+        return view ('index', compact('items_blog'));
     }
 
     /**
