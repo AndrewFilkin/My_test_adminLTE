@@ -6,17 +6,31 @@ use App\Http\Controllers\Blog\BaseController;
 use App\Models\BlogPost;
 use App\Models\BlogCategory;
 use Illuminate\Http\Request;
+use App\Repositories\BlogPostRepository;
+use App\Repositories\BlogCategoryRepository;
 
 
 class BlogPostController extends BaseController
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+
+    private $blogPostRepository;
+    private $blogCategoryRepository;
+
+    public function __construct()
+    {
+        parent::__construct();
+
+//        $this->blogCategoryRepository = app(BlogCategoryRepository::class);
+        $this->blogPostRepository = app(BlogPostRepository::class);
+    }
+
+
     public function index()
     {
+
+        $paginator = $this->blogPostRepository->getAllWithPaginate();
+        return view('index', compact('paginator'));
 
 //        Вывести слаг с постов и описание с категорий
 //        $post = BlogPost::all();
@@ -25,11 +39,13 @@ class BlogPostController extends BaseController
 //            echo '<p>Description: </p>'. $posts->category['description']. '<br>';
 //            echo '--------------------<br>';
 //        }
-        $items_blog = BlogPost::all();
 
-        // dd($items->first());
 
-        return view ('index', compact('items_blog'));
+//        $items_blog = BlogPost::paginate(2);
+//
+//        // dd($items->first());
+//
+//        return view ('index', compact('items_blog'));
     }
 
     /**
@@ -45,7 +61,7 @@ class BlogPostController extends BaseController
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -56,7 +72,7 @@ class BlogPostController extends BaseController
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -67,19 +83,30 @@ class BlogPostController extends BaseController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
+        $item = $this->blogPostRepository->getEdit($id);
+        if (empty($item)) {
+            abort(404);
+        }
+//        $categoryList = $this->blogCategoryRepository->getForComboBox();
+
+
+        return view(
+            'blog_post',
+            compact('item')
+        );
+
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -90,7 +117,7 @@ class BlogPostController extends BaseController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

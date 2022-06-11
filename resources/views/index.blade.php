@@ -2,16 +2,17 @@
 
 @section('content_blog')
 
-    @foreach($items_blog as $item)
+    @foreach($paginator as $item)
 
-        {{$item->user['name']}}
 
         <div class="post_section">
 
             <span class="comment"><a href="blog_post.html">{{$item->comments_count}}</a></span>
 
-            <h2><a href="blog_post.html">{{$item->title}}</a></h2>
-            December 28, 2048 | <strong>Author:</strong> John | <strong>Category:</strong> <a href="#">Freebies</a>
+            <h2><a href="{{route('blog.edit', $item->id)}}">{{$item->title}}</a></h2>
+{{--            <a href="{{route('blog.admin.posts.edit', $post->id)}}">{{$post->title}}</a>--}}
+            December 28, 2048 | <strong>Author:</strong> {{$item->user['name']}} | <strong>Category:</strong> <a
+                href="#">Freebies</a>
 
             <img src="{{asset('img/blog/ImagesForArticles/templatemo_image_01.jpg')}}" alt="image 1"/>
 
@@ -24,27 +25,6 @@
             <a href="blog_post.html">Continue reading...</a>
 
         </div>
-{{--        <div class="post_section">--}}
-
-{{--            <span class="comment"><a href="blog_post.html">256</a></span>--}}
-
-{{--            <h2><a href="blog_post.html">Lorem ipsum dolor sit amet</a></h2>--}}
-
-{{--            December 24, 2048 | <strong>Author:</strong> Steve | <strong>Category:</strong> <a href="#">Web--}}
-{{--                Design</a>--}}
-
-{{--            <img src="{{asset('img/blog/ImagesForArticles/templatemo_image_02.jpg')}}" alt="image 2"/>--}}
-
-{{--            <p>Credits go to <a href="http://www.smashingmagazine.com/2008/09/23/practika-a-free-icon-set/"--}}
-{{--                                target="_blank">Smashing Magazine</a> for icons, <a href="http://www.photovaco.com"--}}
-{{--                                                                                    target="_blank">Free photos</a>--}}
-{{--                for photos, and <a href="http://www.serie3.info/s3slider/" target="_blank">Serie3</a> for the--}}
-{{--                slider. Ut nec vestibulum odio. Vivamus vitae nibh eu sem malesuada rutrum et sit amet magna. Cum--}}
-{{--                sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>--}}
-{{--            <a href="blog_post.html">Continue reading...</a>--}}
-
-{{--        </div>--}}
-
     @endforeach
-
+    {{$paginator->links('vendor.pagination.custom')}}
 @stop
