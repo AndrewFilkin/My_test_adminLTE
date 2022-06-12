@@ -9,7 +9,7 @@
 
             <span class="comment"><a href="blog_post.html">{{$item->comments_count}}</a></span>
 
-            <h2><a href="{{route('blog.edit', $item->id)}}">{{$item->title}}</a></h2>
+            <h2><a href="{{route('blog.show', $item->slug)}}">{{$item->title}}</a></h2>
 {{--            <a href="{{route('blog.admin.posts.edit', $post->id)}}">{{$post->title}}</a>--}}
             December 28, 2048 | <strong>Author:</strong> {{$item->user['name']}} | <strong>Category:</strong> <a
                 href="#">Freebies</a>

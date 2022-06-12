@@ -27,8 +27,8 @@ class BlogPostFactory extends Factory
         $data = [
             'category_id'    => rand(1, 10),
             'user_id'        => 1,
-            'slug'           => $title,
-            'title'          => Str::slug($title),
+            'slug'           => Str::slug($title),
+            'title'          => $title,
             'excerpt'        => $this->faker->text(rand(40, 100)),
             'content_raw'    => $txt,
             'content_html'   => $txt,

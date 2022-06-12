@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Blog\BlogPostController;
+use App\Models\BlogPost;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //My routes
-Route::group([ 'middleware' => 'check_admin_or_not', 'prefix' => 'admin', 'as' => 'admin.'], function () {
+Route::group(['middleware' => 'check_admin_or_not', 'prefix' => 'admin', 'as' => 'admin.'], function () {
 
     Route::get('/', function () {
         return view('admin.main');
@@ -34,10 +35,28 @@ Route::group([ 'middleware' => 'check_admin_or_not', 'prefix' => 'admin', 'as' =
 Route::group([], function () {
 
     Route::get('/', [App\Http\Controllers\Blog\BlogPostController::class, 'index'])->name('home');
+//    Route::resource('blog', BlogPostController::class);
 
 
+    Route::get('blog', [BlogPostController::class, 'index']);
 
-    Route::resource('blog', BlogPostController::class);
+    Route::get('blog/create', [BlogPostController::class, 'create']);
+
+    Route::post('blog', [BlogPostController::class, 'store']);
+
+    Route::get('blog/{blog}/edit', [BlogPostController::class, 'edit']);
+
+    Route::put('blog/{blog}', [BlogPostController::class, 'update']);
+
+    Route::get('/blog/{blog:slug}', [BlogPostController::class, 'show'])->name('blog.show');
+
+    Route::delete('blog/{blog}', [BlogPostController::class, 'destroy']);
+
+
+//    Route::get('/blog/{post:slug}', function (BlogPost $post) {
+//        return $post;
+//    });
+
 
 });
 

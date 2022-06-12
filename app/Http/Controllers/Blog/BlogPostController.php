@@ -75,9 +75,15 @@ class BlogPostController extends BaseController
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(BlogPost $post)
     {
-        //
+        $item = BlogPost::findOrFail($post);
+
+        return view(
+            'blog_post',
+            compact('item')
+        );
+
     }
 
     /**
