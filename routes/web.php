@@ -54,7 +54,7 @@ Route::group([], function () {
 
 
 //    Route::get('/blog/{post:slug}', function (BlogPost $post) {
-//        return $post;
+//        return $post->slug;
 //    });
 
 

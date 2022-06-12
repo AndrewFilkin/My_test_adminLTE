@@ -10,7 +10,7 @@
 
                 <span class="comment"><a href="fullpost.html">256</a></span>
 
-                <h2>Aliquam lorem ante dapibus in viverra </h2>
+                <h2>{{$blog->title}} </h2>
 
                 December 28, 2048 | <strong>Author:</strong> John | <strong>Category:</strong> <a href="#">Freebies</a>
 
