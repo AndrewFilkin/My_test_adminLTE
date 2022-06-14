@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\EmploeeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+//get all employees
+Route::get('employee', [EmploeeController::class, 'getEmployee']);
+Route::get('employee/{id}', [EmploeeController::class, 'getEmployeeById']);
+Route::post('addEmployee', [EmploeeController::class, 'addEmployee']);

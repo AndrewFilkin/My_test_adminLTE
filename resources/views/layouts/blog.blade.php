@@ -28,6 +28,9 @@
     <div id="templatemo_menu">
 
         <ul>
+            @if(Auth::user() !== null and Auth::user()->role == 1)
+                <li><a href="/admin" class="current">Admin</a></li>
+            @endif
             <li><a href="index.html" class="current">Blog</a></li>
             <li><a href="portfolio.html">Portfolio</a></li>
             <li><a href="about.html">About Us</a></li>
@@ -113,7 +116,7 @@
 
         <div id="templatemo_main">
 
-          @yield('content_blog')
+            @yield('content_blog')
 
         </div>
 

@@ -23,7 +23,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-//My routes
+//admin
 Route::group(['middleware' => 'check_admin_or_not', 'prefix' => 'admin', 'as' => 'admin.'], function () {
 
     Route::get('/', function () {
