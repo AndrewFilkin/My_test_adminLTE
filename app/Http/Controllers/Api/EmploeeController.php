@@ -42,4 +42,13 @@ class EmploeeController extends Controller
         return response($employee, 200);
     }
 
+    public function destroyEmployee (Request $request, $id) {
+        $employee = Emploee::find($id);
+        if (is_null($employee)) {
+            return response()->json(['messages' => 'null'], 404);
+        }
+        $employee->delete();
+        return response()->json(null, 204);
+    }
+
 }

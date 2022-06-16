@@ -23,3 +23,4 @@ Route::get('employee', [EmploeeController::class, 'getEmployee']);
 Route::get('employee/{id}', [EmploeeController::class, 'getEmployeeById']);
 Route::post('addEmployee', [EmploeeController::class, 'addEmployee']);
 Route::put('updateEmployee/{id}', [EmploeeController::class, 'updateEmployee']);
+Route::delete('destroyEmployee/{blog}', [EmploeeController::class, 'destroyEmployee']);
