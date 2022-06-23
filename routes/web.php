@@ -30,6 +30,12 @@ Route::group(['middleware' => 'check_admin_or_not', 'prefix' => 'admin', 'as' =>
         return view('admin.main');
     });
 
+    Route::get('/articles', function () {
+        return view('admin.articles');
+    });
+
+
+
 });
 //Blog
 Route::group([], function () {
