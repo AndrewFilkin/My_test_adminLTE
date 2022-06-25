@@ -7,7 +7,7 @@
     <title>AdminLTE 3 | Starter</title>
 
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
-
+    @yield('summernote')
 
     <script nonce="7b437ef8-a18d-451d-8a13-e3b77356353f">(function (w, d) {
             !function (a, e, t, r) {

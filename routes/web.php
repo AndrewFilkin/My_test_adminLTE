@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Blog\BlogPostController;
+use App\Http\Controllers\Admin\PostController;
 use App\Models\BlogPost;
 
 /*
@@ -30,9 +31,9 @@ Route::group(['middleware' => 'check_admin_or_not', 'prefix' => 'admin', 'as' =>
         return view('admin.main');
     });
 
-    Route::get('/articles', function () {
-        return view('admin.articles');
-    });
+    Route::get('/articles', [PostController::class, 'index'])->name('all.posts');
+
+    Route::get('/articles/{blog:slug}', [PostController::class, 'show'])->name('blog.show');
 
 
 
