@@ -45,7 +45,7 @@ class BlogPostRepository extends CoreRepository
                 //или так
                 'user:id,name',
             ])
-            ->paginate(2);
+            ->paginate(5);
 
         return $result;
     }

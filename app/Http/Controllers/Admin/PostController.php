@@ -21,7 +21,6 @@ class PostController extends BaseController
     }
 
 
-
     public function index()
     {
 
@@ -33,7 +32,18 @@ class PostController extends BaseController
     public function show(BlogPost $blog)
     {
 
+        $post = $blog->getOriginal();
 
-        return view ('admin.edit_articles');
+        return view('admin.edit_articles', compact('post'));
+    }
+
+    public function update(Request $request, $id)
+    {
+
+        $post = BlogPost::find($id);
+
+        $post->update($request->all());
+        $param = $request->slug;
+        return redirect()->route('admin.blog.show', [$param]);
     }
 }

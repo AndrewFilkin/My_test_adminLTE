@@ -13,52 +13,60 @@
 
 @section('content')
 
+
+
     <h1>Classic editor</h1>
-    <div>
 
-        <div class="col-sm-6">
-            <div class="form-group">
-                <label>Title</label>
-                <input type="text" class="form-control" placeholder="Enter ...">
-            </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="form-group">
-                <label>Slug</label>
-                <input type="text" class="form-control" placeholder="Enter ...">
-            </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="form-group">
-                <label>Likes</label>
-                <input type="number" class="form-control" placeholder="Enter ...">
-            </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="form-group">
-                <label>Comments count</label>
-                <input type="number" class="form-control" placeholder="Enter ...">
-            </div>
-        </div>
-    </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    <form method="POST" action="{{ route('admin.blog.update', $post['id']) }}">
+        @method('PUT')
+        @csrf
+        <div>
 
-    <textarea id="summernote" name="editordata"></textarea>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" class="form-control" name="title" value="{{$post['title']}}">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Slug</label>
+                    <input type="text" class="form-control" name="slug" value="{{$post['slug']}}">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Likes</label>
+                    <input type="number" class="form-control" name="likes" value="{{$post['likes']}}">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Comments count</label>
+                    <input type="number" class="form-control" name="comments_count" value="{{$post['comments_count']}}">
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
 
+        <textarea id="content_html" name="content_html">{!! $post['content_html']!!}</textarea>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
 
 
 
     <script>
         $(document).ready(function () {
-            $('#summernote').summernote();
+            $('#content_html').summernote();
         });
     </script>
 @endsection

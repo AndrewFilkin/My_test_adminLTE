@@ -247,7 +247,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="admin/articles" class="nav-link">
+                        <a href="{{route('admin.all.posts')}}" class="nav-link">
                             {{--                            <i class="nav-icon fas fa-th"></i>--}}
                             <i class="nav-icon fa-regular fa-floppy-disk"></i>
                             <p>

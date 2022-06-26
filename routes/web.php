@@ -32,9 +32,8 @@ Route::group(['middleware' => 'check_admin_or_not', 'prefix' => 'admin', 'as' =>
     });
 
     Route::get('/articles', [PostController::class, 'index'])->name('all.posts');
-
     Route::get('/articles/{blog:slug}', [PostController::class, 'show'])->name('blog.show');
-
+    Route::put('/articles/update/{blog}', [PostController::class, 'update'])->name('blog.update');
 
 
 });
