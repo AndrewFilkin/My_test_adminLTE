@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Blog\BlogPostController;
 use App\Http\Controllers\Admin\PostController;
 use App\Models\BlogPost;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Routes;
+use App\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +22,7 @@ use App\Models\BlogPost;
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/home',[App\Http\Controllers\HomeController::class, 'upload'])->name('home.upload.avatar');
 
 Auth::routes();
 

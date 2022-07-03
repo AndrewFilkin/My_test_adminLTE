@@ -99,7 +99,6 @@ class BlogPostController extends BaseController
         }
 //        $categoryList = $this->blogCategoryRepository->getForComboBox();
 
-
         return view(
             'blog_post',
             compact('item')
