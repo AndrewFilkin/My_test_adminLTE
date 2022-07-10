@@ -26,7 +26,10 @@ Route::post('/home',[App\Http\Controllers\HomeController::class, 'upload'])->nam
 
 Auth::routes();
 
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/search', [App\Http\Controllers\SearchController::class, 'search'])->name('search');
 
 //admin
 Route::group(['middleware' => 'check_admin_or_not', 'prefix' => 'admin', 'as' => 'admin.'], function () {

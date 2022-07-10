@@ -31,6 +31,12 @@
             @if(Auth::user() !== null and Auth::user()->role == 1)
                 <li><a href="/admin" class="current">Admin</a></li>
             @endif
+            <li>
+                <form method="get" action="{{route('search')}}">
+                    <input type="search" id="search" name="s" placeholder="Search..."/>
+                    <button type="submit" style="color: red">Search</button>
+                </form>
+            </li>
             <li><a href="index.html" class="current">Blog</a></li>
             <li><a href="portfolio.html">Portfolio</a></li>
             <li><a href="about.html">About Us</a></li>
