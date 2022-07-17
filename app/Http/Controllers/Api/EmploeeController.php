@@ -3,14 +3,23 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\EmploeeCollection;
+use App\Http\Resources\EmploeeResource;
 use Illuminate\Http\Request;
 use App\Models\Emploee;
+use Illuminate\Support\Facades\Cache;
 
 class EmploeeController extends Controller
 {
     public function getEmployee()
     {
-        return response()->json(Emploee::all(), 200);
+//        return response()->json(Emploee::all(), 200);
+//        return new EmploeeCollection(Emploee::all());
+//        return new EmploeeCollection(Emploee::paginate(1));
+//        return new EmploeeCollection(Emploee::paginate(1));
+        return new EmploeeCollection(Cache::remember('employeeAll', 60 * 60 * 24, function () {
+            return Emploee::paginate(1);
+        }));
     }
 
     public function getEmployeeById($id)
@@ -20,10 +29,17 @@ class EmploeeController extends Controller
         if (is_null($employees)) {
             return response()->json(['messages' => 'null'], 404);
         } else {
-            return response()->json($employees);
+//            return new EmploeeResource($employees);
+            return new EmploeeResource(Cache::remember('employee', 60 * 60 * 24, function () use ($id) {
+                return Emploee::find($id);
+            }));
+
+
         }
 
-        return response()->json(Emploee::find($id), 200);
+//        return new EmploeeResource(response()->json(Emploee::find($id), 200));
+
+//        return response()->json(Emploee::find($id), 200);
     }
 
     public function addEmployee(Request $request)
@@ -42,7 +58,8 @@ class EmploeeController extends Controller
         return response($employee, 200);
     }
 
-    public function destroyEmployee (Request $request, $id) {
+    public function destroyEmployee(Request $request, $id)
+    {
         $employee = Emploee::find($id);
         if (is_null($employee)) {
             return response()->json(['messages' => 'null'], 404);
