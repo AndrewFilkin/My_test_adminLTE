@@ -69,8 +69,10 @@ Route::group([], function () {
 //    Route::get('/blog/{post:slug}', function (BlogPost $post) {
 //        return $post->slug;
 //    });
+});
 
-
+Route::get('/trello-panel', function () {
+    return view('trello.trello_index');
 });
 
 
