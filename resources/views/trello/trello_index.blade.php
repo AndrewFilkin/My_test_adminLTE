@@ -1,21 +1,21 @@
 <html>
+
 <head>
-    <title>Trello</title>
-    <link rel="stylesheet" href="{{asset('trello/trello.css')}}">
-    <script src="{{asset('trello/trello.js')}}"></script>
+    <link rel="stylesheet" href="{{asset('trello/style.css')}}"></link>
 </head>
+
+
 <body>
-<div class="column">
-    <h1 class="title">To Do</h1>
-    <div class="item">
-        <h2 class="item-title">do the dishes</h2>
-    </div>
-    <div class="item">
-        <h2 class="item-title">learn Angular 2</h2>
-    </div>
+
+<div id="addTodoListDiv">
+    <input id="addTodoListInput" class="comment">
+    <button id="addTodoListButton" class="btn-save">Add new to-do list</button>
 </div>
-<div class="column">
-    <h1 class="title">Done</h1>
-</div>
+
+<div id="root"></div>
+
 </body>
+
+<script src="{{asset('trello/script.js')}}"></script>
+
 </html>
